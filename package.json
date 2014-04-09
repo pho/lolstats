@@ -1,0 +1,21 @@
+{
+  "name": "lolstats",
+  "version": "0.0.1",
+  "author": "pho <pho@gatchan.org>",
+  "description": "League Of Legends > Google Spreadsheet",
+  "keywords": [
+    "league",
+    "legends",
+    "google",
+    "spreadsheet"
+  ],
+  "dependencies" : {
+    "async"   :  "*",
+    "edit-google-spreadsheet" :  "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pho/lolstats.git"
+  },
+  "license": "GPL2"
+}

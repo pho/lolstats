@@ -1,0 +1,16 @@
+exports.lol = {
+	apikey : "deadbeef-deadbeef-1234",
+	region : "euw",
+	name : "phofe",
+	summonerID : "20292668"
+}
+
+exports.spreadsheet = {
+	title: "Sheet 1",
+	file_id : 'd34db33fbl4hbl4h3tc'
+}
+
+exports.oauth = {
+	email : "asdf@developer.gserviceaccount.com",
+	keyFile: "key.pem"
+}
