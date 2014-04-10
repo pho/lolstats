@@ -76,12 +76,12 @@ function parseRecent(data){
 				lastDateRow = rows[(nextRow-1).toString()];
 				lastDate = (lastDateRow ? lastDateRow["1"] : "1/1/1970").split("/");
 				lastTime = (lastDateRow ? lastDateRow["2"] : "00:00:00").split(":");
-				var d = new Date(lastDate[2], lastDate[1], lastDate[0], lastTime[0], lastTime[1], lastTime[2]);
+				var d = new Date(lastDate[2], lastDate[1]-1, lastDate[0], lastTime[0], lastTime[1], lastTime[2]);
 
 				var tmp = parseInt(game.createDate/1000)*1000;
 				
 				if (d.getTime() >= tmp){
-					console.log("Game already recorded", game.subType, game.stats.win);
+					console.log("Game already recorded", game.subType, game.stats.win, d.getTime(), tmp);
 					cb();
 					return; // wtf.
 				}
