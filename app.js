@@ -79,7 +79,7 @@ function parseRecent(data){
 				var d = new Date(lastDate[2], lastDate[1], lastDate[0], lastTime[0], lastTime[1], lastTime[2]);
 
 				var tmp = parseInt(game.createDate/1000)*1000;
-				q
+				
 				if (d.getTime() >= tmp){
 					console.log("Game already recorded", game.subType, game.stats.win);
 					cb();
