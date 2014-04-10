@@ -32,17 +32,19 @@ function summID(player, cb){
 
 function checkLabels(nextRow, sheet){
 	if(nextRow == 1){
+		console.log("Setting labels");
 		obj = {}
         obj[nextRow] = {
         	1: "Date",
-        	2: "Mode",
-        	3: "Type",
-        	4: "IP",
-        	5: "Team",
-        	6: "Champion",
-        	7: "Spell1",
-        	8: "Spell2",
-        	9: "Result"
+        	2: "Time",
+        	3: "Mode",
+        	4: "Type",
+        	5: "IP",
+        	6: "Team",
+        	7: "Champion",
+        	8: "Spell1",
+        	9: "Spell2",
+        	10: "Result"
         };
         sheet.add(obj);
         return true;
@@ -100,15 +102,16 @@ function parseRecent(data){
 
 			        obj = {}
 			        obj[nextRow] = {
-			        	1: date.toString(),
-			        	2: game.gameMode,
-			        	3: game.subType,
-			        	4: game.ipEarned,
-			        	5: team,
-			        	6: champ.name,
-			        	7: game.spell1,
-			        	8: game.spell2,
-			        	9: win
+			        	1: util.format("%s/%s/%s", date.getDate(), date.getMonth(), date.getFullYear()),
+			        	2: util.format("%s:%s:%s", date.getHours(), date.getMinutes(), date.getSeconds()),
+			        	3: game.gameMode,
+			        	4: game.subType,
+			        	5: game.ipEarned,
+			        	6: team,
+			        	7: champ.name,
+			        	8: game.spell1,
+			        	9: game.spell2,
+			        	10: win
 			        };
 			        
 			        spreadsheet.add(obj);
