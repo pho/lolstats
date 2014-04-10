@@ -17,5 +17,12 @@
     "type": "git",
     "url": "https://github.com/pho/lolstats.git"
   },
-  "license": "GPL2"
+  "license": "GPL2",
+
+
+
+  "main": "index.html",
+  "window": {
+    "toolbar": false
+  } 
 }

@@ -54,6 +54,7 @@ function checkLabels(nextRow, sheet){
 }
 
 function parseRecent(data){
+	
 	data = JSON.parse(data);
 
 	var games = data.games.sort(function(a, b){
@@ -126,7 +127,7 @@ function parseRecent(data){
 		        })
 				
 	      	}, function(err){
-           		console.log("Done");
+	      		console.log("Done.")
 	      	});
 	        
       	});
@@ -136,3 +137,7 @@ function parseRecent(data){
 
 recent(config.lol.summonerID, parseRecent);
 //summID("phofe", console.log)
+
+exports.update = function(){
+	recent(config.lol.summonerID, parseRecent);
+}
