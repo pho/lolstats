@@ -54,6 +54,7 @@ function checkLabels(nextRow, sheet){
 }
 
 function parseRecent(data){
+	
 	data = JSON.parse(data);
 
 	var games = data.games.sort(function(a, b){
@@ -72,13 +73,15 @@ function parseRecent(data){
 
 			async.eachSeries(games, function(game, cb){
 
-
-				lastDate = rows["" + (nextRow-1)];
-				lastTime = new Date( lastDate ? lastDate["1"] : 0 ).getTime();
+				lastDateRow = rows[(nextRow-1).toString()];
+				lastDate = (lastDateRow ? lastDateRow["1"] : "1/1/1970").split("/");
+				lastTime = (lastDateRow ? lastDateRow["2"] : "00:00:00").split(":");
+				var d = new Date(lastDate[2], lastDate[1], lastDate[0], lastTime[0], lastTime[1], lastTime[2]);
 
 				var tmp = parseInt(game.createDate/1000)*1000;
-				
-				if (lastTime >= tmp){
+				q
+				if (d.getTime() >= tmp){
+					console.log("Game already recorded", game.subType, game.stats.win);
 					cb();
 					return; // wtf.
 				}
@@ -102,7 +105,7 @@ function parseRecent(data){
 
 			        obj = {}
 			        obj[nextRow] = {
-			        	1: util.format("%s/%s/%s", date.getDate(), date.getMonth(), date.getFullYear()),
+			        	1: util.format("%s/%s/%s", date.getDate(), date.getMonth()+1, date.getFullYear()),
 			        	2: util.format("%s:%s:%s", date.getHours(), date.getMinutes(), date.getSeconds()),
 			        	3: game.gameMode,
 			        	4: game.subType,
@@ -126,7 +129,7 @@ function parseRecent(data){
 		        })
 				
 	      	}, function(err){
-           		console.log("Done");
+	      		console.log("Done.")
 	      	});
 	        
       	});
