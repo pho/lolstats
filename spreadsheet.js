@@ -13,6 +13,8 @@ exports.open = function(cb){
         }
 
     }, function sheetReady(err, spreadsheet){
+        if(err) throw err;
+
         cb(spreadsheet);
 
         spreadsheet.send(function(err) {

@@ -8,11 +8,12 @@ console.log("ApiKey:", config.lol.apikey);
 console.log("Region:", config.lol.region);
 console.log("Player Name:", config.lol.name);
 
-baseurl = "https://prod.api.pvp.net/"
+baseurl = "https://euw.api.pvp.net/"
+globalurl = "https://global.api.pvp.net/"
 
 summoner = baseurl + "api/lol/" + config.lol.region + "/v1.4/summoner"
 game = baseurl + "api/lol/" + config.lol.region + "/v1.3/game"
-staticdata = baseurl + "api/lol/static-data/"+ config.lol.region +"/v1.2"
+staticdata = globalurl + "api/lol/static-data/"+ config.lol.region +"/v1.2"
 
 function recent(summonerID, cb){
 	url = util.format("%s/by-summoner/%s/recent", game, summonerID);
